@@ -1,10 +1,12 @@
-package corejava.assignments_1;
+package corejava.assignmentstest_1;
 
 import static org.junit.Assert.*;
 
 import java.util.Scanner;
 
 import org.junit.Test;
+
+import corejava.assignments_1.ArmstrongNumber;
 
 public class ArmstrongTest {
 	Scanner scan = new Scanner(System.in);

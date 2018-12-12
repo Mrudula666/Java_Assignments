@@ -1,8 +1,10 @@
-package corejava.assignments_1;
+package corejava.assignmentstest_1;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import corejava.assignments_1.ArmstrongNumbersBetweenRange;
 
 public class ArmstrongNumbersBetweenRangeTest {
 

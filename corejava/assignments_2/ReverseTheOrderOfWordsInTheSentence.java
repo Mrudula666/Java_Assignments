@@ -13,7 +13,7 @@ public class ReverseTheOrderOfWordsInTheSentence {
 			else
 				reverse_string += getReverseWord(word)+" ";
 		}
-		return reverse_string;
+		return reverse_string;//returning the result
 	}
 
 	private static String getReverseWord(String word) {//reversing the each word.
@@ -22,7 +22,7 @@ public class ReverseTheOrderOfWordsInTheSentence {
 		for(int i=words.length-1;i>=0;i--){
 			reverse+=words[i];
 		}
-		return reverse;
+		return reverse;//returning the string
 	}
 
 }
