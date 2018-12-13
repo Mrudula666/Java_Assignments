@@ -14,6 +14,7 @@ public class RemovingTheSpacesAndObtainingTheDesiredWordFromSentence {
 				//System.out.println(parts[i]);
 			new_sentence += parts[i]+" ";//adding the remaining words to the new_sentence except the position word given.
 		}
+		System.out.println(new_sentence.trim());//displaying the result
 		return new_sentence.trim();
 	}
 }

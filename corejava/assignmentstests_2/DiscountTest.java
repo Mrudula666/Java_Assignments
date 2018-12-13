@@ -12,6 +12,7 @@ public class DiscountTest {
 	public void testForPositiveDiscount() {
 		int newItem =2500;//getting the new item price
 		int discount_percent = 35;//discount percent.
+		double answer = 2499.65;
 		double new_price = Discount.getNewPrice(newItem,discount_percent);//implementing the method to get the discount and price of the item 
 		System.out.println(new_price);//printing the output
 	}
@@ -20,6 +21,14 @@ public class DiscountTest {
 	public void testForDiscount() {
 		int newItem =2500;//getting the new item price
 		int discount_percent = 55;//discount percent.
+		double new_price = Discount.getNewPrice(newItem,discount_percent);//implementing the method to get the discount and price of the item 
+		System.out.println(new_price);//printing the output
+	}
+	
+	@Test
+	public void testForNoDiscount() {
+		int newItem =2500;//getting the new item price
+		int discount_percent = 0;//discount percent.
 		double new_price = Discount.getNewPrice(newItem,discount_percent);//implementing the method to get the discount and price of the item 
 		System.out.println(new_price);//printing the output
 	}

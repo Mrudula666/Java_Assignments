@@ -7,7 +7,7 @@ public class ArrayIntegerAndInteger {
 		for(int i=0;i<number_array.length;i++){
 			for(int j=i+1;j<number_array.length;j++){
 				if(number_array[i] == number_array[j]){//checking for equal numbers
-					absolute_difference = i-j;//obtaining the absolute differnce 
+					absolute_difference = i-j;//obtaining the absolute difference 
 				}
 			}			
 		}

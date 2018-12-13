@@ -10,10 +10,14 @@ public class ArrayIntegersAndIntergerTest {
 
 	@Test
 	public void ResultValueShouldBeAtmostK() {
-		int[] number_array = {1,2,4,5,6,1,7,8,9,10};
-		int k=2;
-		int result = ArrayIntegerAndInteger.getResult(number_array,k);
+		int[] number_array = {1,2,4,5,6,1,7,8,9,10};//getting input
+		int k=2;//getting the value of k.
+		int result = ArrayIntegerAndInteger.getResult(number_array,k);//call for the getResult() in ArrayIntgerAndInteger class
+		if(result<=k){
+			k=result;
+		}
 		System.out.println(result);
+		assertEquals(k, result);
 	}
 	
 	@Test

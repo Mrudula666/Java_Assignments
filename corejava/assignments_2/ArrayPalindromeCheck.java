@@ -20,8 +20,7 @@ public class ArrayPalindromeCheck {
 				++j;
 			}
 			}
-		int new_result[] = new int[count]; 
-		new_result=	sort(result);//call for sorting the elements.
+		String new_result[] = new String[count]; 
 		String result_elements[] = new String[count];
 		for(int i=0;i<test_elements.length;i++){
 			if(isPalindrome(test_elements[i])){//checking whether the String is palindrome or not
@@ -29,20 +28,28 @@ public class ArrayPalindromeCheck {
 				++k;
 			}
 		}
+		new_result=	sort(result_elements);//call for sorting the elements.
+		for(int i=0;i<new_result.length;i++){
+			if(i==new_result.length-1){
+				System.out.print(new_result[i]+" ");
+			}else
+			System.out.print(new_result[i]+",");
+		}
 		return result_elements;
 	}
-	//Sorting the array using the sequential sort
-	private static int[] sort(int[] result) {
-		for(int i=0;i<result.length;i++){
-			for(int j=i+1;j<result.length;j++){//sorting the array.
-				if(result[i]<=result[j]){
-					int temp = result[i];
-					result[i] = result[j];
-					result[j] =temp;
+	//Sorting the String array using the sequential sort
+	private static String[] sort(String[] result_elements) {
+		for(int i=0;i<result_elements.length;i++){
+			for(int j=i+1;j<result_elements.length;j++){
+				if(result_elements[i].charAt(0)<=result_elements[j].charAt(0)){
+					String temp = result_elements[i];
+					result_elements[i] = result_elements[j];
+					result_elements[j] = temp;
 				}
 			}
 		}
-		return result;
+		
+		return result_elements;
 	}
 //getting the character count of palindrome
 	private static int getCharCount(String string) {

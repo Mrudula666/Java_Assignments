@@ -18,13 +18,13 @@ public class PalindromeTest {
 	public void palindromeTestForNegativeNumbers() {
 		int number = -121;//taking the integer
 		boolean palindrome = Palindrome.isPalindrome(number);//calling the palindrome() method.
-		assertTrue(palindrome);//checking whether the number is palindrome or not
+		assertFalse(palindrome);//checking whether the number is palindrome or not
 		//assertEquals(number, palindrome);
 	}
 	@Test
 	public void palindromeTestForTwoDigits() {
 		int number = 10;//taking the integer
 		boolean palindrome = Palindrome.isPalindrome(number);//calling the palindrome() method.
-		assertTrue(palindrome);//checking whether the number is palindrome or not
+		assertFalse(palindrome);//checking whether the number is palindrome or not
 	}
 }

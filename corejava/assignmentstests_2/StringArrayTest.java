@@ -19,5 +19,16 @@ public class StringArrayTest {
 		System.out.println(countOfOccurrence);//printing the occurences.
 		assertEquals(4, countOfOccurrence);//checking for the number of occurences.
 	}
+	@Test
+	public void testForNameNotPresentInArray() {
+		String[] names = {"Dave", "Ann", "George", "Sam", "Ted", "Gag", "Saj", "Agati", "Mary", "Sam", 
+					"Ayan", "Dev", "Kity", "Meery", "Smith", "Johnson", "Bill", "Williams","Ayan",
+					"Jones", "Brown", "Davis", "Miller", "Wilson","George","Jackson","Ayan","Ayan",
+						"Moore", "Taylor", "Anderson", "Thomas", "Jackson"};//getting the string array with the names.
+		String name = "Mrudula";
+		int countOfOccurrence = StringArray.getOccurance(names,name);//calling the getOccurance() method in the StringArray class.
+		System.out.println(countOfOccurrence);//printing the occurences.
+		assertEquals(0, countOfOccurrence);//checking for the number of occurences.
+	}
 
 }
