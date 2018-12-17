@@ -14,7 +14,7 @@ public class RectangleClassTest {
 	@Before
 	public void setUp(){
 		rectangle = new RectangleClass(12,13);//creating the rectangle instance using argumented constructor.
-		rectangle1 = new RectangleClass(15,17);//creating the another instances using non argumented constructor.
+		rectangle1 = new RectangleClass(15,17);
 		
 	}
 	@Test

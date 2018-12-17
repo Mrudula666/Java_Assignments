@@ -19,20 +19,24 @@ public class Distance {
 	private int feet;
 	private float inches;
 	public void set(int feet,float inches){
-		if(feet>0 || inches>0){
+		if(feet>=0 || inches>=0){
 		this.feet = feet;
 		this.inches = inches;
 		}else
-			System.out.println("Invalid details...");
+			System.out.println("Distance cannot be negitive.");
 	}
-	public void disp(){
+	public  void disp(){
 		System.out.println("Feet: "+feet+" "+"Inches: "+inches);
 	}
 	public static Distance add(Distance distance1, Distance distance2) {
 		System.out.print("Adding the distances: ");
 		Distance distanceSum = new Distance();
-		distanceSum.feet = distance1.feet+distance2.feet;
-		distanceSum.inches = distance1.inches+distance2.inches;
+		if(distance1.feet<=0 || distance2.inches<=0){
+			System.out.println("Addition Cannot be performed");
+		}else{
+			distanceSum.feet = distance1.feet+distance2.feet;
+			distanceSum.inches = distance1.inches+distance2.inches;
+		}
 		return distanceSum;
 	}
 	

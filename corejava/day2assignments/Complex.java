@@ -21,23 +21,25 @@ public class Complex {
 	//set() method for intitialising the real and imaginary float values. 
 	public void set(float real, float imaginary)
 	{
-		if(real>0 || imaginary>0){
+		//if(real>0 || imaginary>0){
 		this.real = real;
 		this.imaginary = imaginary;
-		}else
-			System.out.println("Invalid details");
+		//}
 	}
 	//disp() for displaying the method.
 	public void disp()
 	{
+		if(imaginary>0)
 		System.out.println(real+"+"+imaginary+"i");
+		else
+			System.out.println(real+""+imaginary+"i");
 	}
 	//sum() method for adding the two numbers.
 	public static Complex sum(Complex complexNumber1, Complex complexNumber2) {
 		Complex complexSum = new Complex();
 		System.out.println("Adding the two complex numbers: ");
 		complexSum.real = complexNumber1.real+complexNumber2.real;
-		complexSum.imaginary = complexNumber1.imaginary+complexNumber2.imaginary; 
+		complexSum.imaginary = complexNumber1.imaginary+complexNumber2.imaginary;
 		return complexSum ;//returning the sum of the complex numbers.
 	}
 	
