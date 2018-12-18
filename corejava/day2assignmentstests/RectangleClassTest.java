@@ -51,7 +51,6 @@ public class RectangleClassTest {
 	@Test
 	public void testForDifferentAreaOfTwoRectangles() {
 		boolean flag = RectangleClass.areaComparator(rectangle.areaCalculator(),rectangle1.areaCalculator());
-		System.out.println(flag);
 		assertFalse(flag);
 		
 	}

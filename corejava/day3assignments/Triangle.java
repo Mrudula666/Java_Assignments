@@ -102,5 +102,13 @@ public class Triangle {
 		}
 		return flag;
 	}
+	public static boolean isEquilateral(Triangle equilateral) {
+		boolean flag = false;
+		if(isTriangle(equilateral)){
+			if(equilateral.firstSide == equilateral.secondSide && equilateral.firstSide == equilateral.thirdSide)
+				flag = true;
+		}
+		return flag;
+	}
 
 }

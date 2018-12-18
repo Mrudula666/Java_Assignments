@@ -20,7 +20,7 @@ public class TriangleTest {
 		triangle = new Triangle(2,7,12);
 		rightTriangle = new Triangle(4,3,5);
 		scaleneTriangle = new Triangle(5,6,7);
-		isoscelesTriangle = new Triangle(5,6,7);
+		isoscelesTriangle = new Triangle(5,7,7);
 		equilateral = new Triangle(6,6,6);		
 	}
 
@@ -47,6 +47,13 @@ public class TriangleTest {
 	@Test
 	public void testForIsoscelesTriangle() {
 		boolean result = Triangle.isIsoscelesTriangle(isoscelesTriangle);
+		System.out.println(result);
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testForequilateral() {
+		boolean result = Triangle.isEquilateral(equilateral);
 		System.out.println(result);
 		assertTrue(result);
 	}

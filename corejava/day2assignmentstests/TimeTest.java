@@ -12,6 +12,7 @@ public class TimeTest {
 	private Time time2;
 	private Time timeSum;
 
+	//creating the 3 objects.
 	@Before
 	public void main(){
 		time1 = new Time();
@@ -31,6 +32,7 @@ public class TimeTest {
 		time1.setTime(44, 00);
 		time1.showTime();
 	}
+	//adding the time.
 	@Test
 	public void testForAddingTheTime(){
 		time1.setTime(6, 00);

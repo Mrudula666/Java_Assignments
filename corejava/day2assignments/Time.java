@@ -23,8 +23,7 @@ public class Time {
 		if(hours <= 24 && minutes <= 60) {
 		this.hours = hours;
 		this.minutes = minutes;
-		}else
-			System.out.println("Invalid Time.....");
+		}
 	}
 	public void showTime() {
 		System.out.println("Hours: "+hours+" Minutes: "+minutes);
@@ -38,8 +37,7 @@ public class Time {
 		if(timeSum.hours <= 24 && timeSum.minutes <=60){
 			finalTime.hours = timeSum.hours;
 			finalTime.minutes = timeSum.minutes;
-			}else
-				System.out.println("Invalid Time..");
+		}
 		
 		return finalTime;
 	}

@@ -21,10 +21,8 @@ public class Complex {
 	//set() method for intitialising the real and imaginary float values. 
 	public void set(float real, float imaginary)
 	{
-		//if(real>0 || imaginary>0){
 		this.real = real;
 		this.imaginary = imaginary;
-		//}
 	}
 	//disp() for displaying the method.
 	public void disp()
