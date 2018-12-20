@@ -1,28 +1,33 @@
 package corejava.inheritance.assignments;
 
+import corejava.inheritance.assignments.exceptions.InsuffientFundsException;
+import corejava.inheritance.assignments.exceptions.InvalidAmountException;
+
 public abstract class SavingAccount extends BankAccount {
-	private boolean isSalaried;
-	private final static float MINBAL = 500;
+	protected boolean isSalaried;
+	private final static double MINBAL = 500;
 		
-	public SavingAccount(int accountNumber, String accountHolderName,
+	public SavingAccount( String accountHolderName,
 			double accountBalance, boolean isSalaried) {
-		super(accountNumber, accountHolderName, accountBalance);
+		super( accountHolderName, accountBalance);
 		this.isSalaried = isSalaried;
 	}
 
 
 	@Override
-	public void withDraw(double amountToBeWithdrawn) {
-		if ( amountToBeWithdrawn >=  getAccountBalance() && amountToBeWithdrawn >= MINBAL)
-			deposit(-amountToBeWithdrawn);
-		
-	}
+	public abstract void withDraw(double amountToBeWithdrawn) throws InvalidAmountException, InsuffientFundsException;
 
 
 	@Override
 	public String toString() {
-		return "SavingAccount [isSalaried=" + isSalaried + ", toString()="
-				+ super.toString() + "]";
+		return "SavingAccount [isSalaried=" + isSalaried
+				+ ", getAccountHolderName()=" + getAccountHolderName()
+				+ ", getAccountBalance()=" + getAccountBalance()
+				+ ", toString()=" + super.toString() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + "]";
 	}
+
+
+	
 
 }

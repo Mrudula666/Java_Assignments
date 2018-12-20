@@ -3,6 +3,8 @@
  */
 package corejava.day3assignments;
 
+import corejava.inheritance.assignments.exceptions.InvalidAmountException;
+
 /**
  * @author mrnimmal
  *
@@ -51,12 +53,15 @@ public class BankAccount {
 		return accountNumberGenerator;
 	}
 	
-	public double depositAmount(double amount) {
+	public double depositAmount(double amount) throws InvalidAmountException {
+		if ( amount > 0 ){
 		amount += getInitialBalance();
 		return amount;
+		}
+		throw new InvalidAmountException("Invalid Amount");
 		
 	}
-	public double withDraw(int amountToBeWithdrawn) {
+	public double withDraw(int amountToBeWithdrawn) throws InvalidAmountException {
 		double amount = 0;
 		if ( amountToBeWithdrawn >= 0 && getInitialBalance() >= amountToBeWithdrawn)
 			amount = depositAmount(-amountToBeWithdrawn);

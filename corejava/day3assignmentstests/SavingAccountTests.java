@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import corejava.day3assignments.BankAccount;
 import corejava.day3assignments.PaymentGateway;
+import corejava.inheritance.assignments.exceptions.InvalidAmountException;
 
 public class SavingAccountTests {
 	private BankAccount savingAccountForCustomer1;
@@ -31,25 +32,53 @@ public class SavingAccountTests {
 	}
 	
 	@Test
-	public void testForDeposit() {
-		double currentBalance = savingAccountForCustomer1.depositAmount(5000);
-		assertEquals(6000, currentBalance,0.0);
+	public void testForDeposit(){
+		double currentBalance;
+		try {
+			currentBalance = savingAccountForCustomer1.depositAmount(5000);
+			assertEquals(6000, currentBalance,0.0);
+		} catch (InvalidAmountException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	@Test
 	public void testForWithDraw() {
-		double withdrawnAmount = 	savingAccountForCustomer1.withDraw(50);
-		assertEquals(950, withdrawnAmount,0.0);
+		double withdrawnAmount;
+		try {
+			withdrawnAmount = savingAccountForCustomer1.withDraw(50);
+			assertEquals(950, withdrawnAmount,0.0);
+		} catch (InvalidAmountException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	@Test
 	public void testForTranferFunds() {
-		boolean flag = PaymentGateway.transfer(savingAccountForCustomer1,savingAccountForCustomer2,500);
-		assertTrue(flag);
+		boolean flag;
+		try {
+			flag = PaymentGateway.transfer(savingAccountForCustomer1,savingAccountForCustomer2,500);
+			assertTrue(flag);
+		} catch (InvalidAmountException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	@Test
 	public void testForTranferFundsForInsuffientFunds() {
-		boolean flag = PaymentGateway.transfer(savingAccountForCustomer1,savingAccountForCustomer2,5000);
-		assertFalse(flag);
+		boolean flag;
+		try {
+			flag = PaymentGateway.transfer(savingAccountForCustomer1,savingAccountForCustomer2,5000);
+			assertFalse(flag);
+		} catch (InvalidAmountException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 

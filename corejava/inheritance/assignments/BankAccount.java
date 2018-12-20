@@ -3,7 +3,9 @@
  */
 package corejava.inheritance.assignments;
 
+
 import corejava.inheritance.assignments.exceptions.InsuffientFundsException;
+import corejava.inheritance.assignments.exceptions.InvalidAmountException;
 
 
 
@@ -12,17 +14,30 @@ import corejava.inheritance.assignments.exceptions.InsuffientFundsException;
  *
  */
 public abstract class BankAccount {
-	private final int accountNumber;
+	private int accountNumber;
 	private String accountHolderName;
 	private double accountBalance;
-	public BankAccount(int accountNumber, String accountHolderName,
+	private static int accountNumberGenerator;
+	static{
+		accountNumberGenerator= 110245600;
+	}
+	{
+		accountNumber = ++accountNumberGenerator;
+	}
+	public BankAccount( String accountHolderName,
 			double accountBalance) {
 		super();
-		this.accountNumber = accountNumber;
 		this.accountHolderName = accountHolderName;
 		this.accountBalance = accountBalance;
 	}
 	
+
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
+
+
 
 	public String getAccountHolderName() {
 		return accountHolderName;
@@ -34,21 +49,17 @@ public abstract class BankAccount {
 
 	@Override
 	public String toString() {
-		return "BankAcc [accountNumber=" + accountNumber
+		return "BankAccount [accountNumber=" + accountNumber
 				+ ", accountHolderName=" + accountHolderName
 				+ ", accountBalance=" + accountBalance + "]";
 	}
 
-
-	public void setAccountBalance(double accountBalance) {
-		this.accountBalance = accountBalance;
-	}
 	
-	public abstract void withDraw(double amountToBeWithdrawn) throws InsuffientFundsException;
+	public abstract void withDraw(double amountToBeWithdrawn) throws InsuffientFundsException, InvalidAmountException;
 	
 	public void deposit(double amountToBeDeposited){
-		if(amountToBeDeposited > 0)
-			accountBalance += amountToBeDeposited;
+			accountBalance = accountBalance+amountToBeDeposited;
 	}
+
 
 }

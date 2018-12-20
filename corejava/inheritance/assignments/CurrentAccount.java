@@ -3,29 +3,26 @@ package corejava.inheritance.assignments;
 import corejava.inheritance.assignments.exceptions.InsuffientFundsException;
 
 public abstract class CurrentAccount extends BankAccount {
-	private final double creditLimit; 
+	protected final double creditLimit; 
 
-	public CurrentAccount(int accountNumber, String accountHolderName,
+	public CurrentAccount( String accountHolderName,
 			double accountBalance, double creditLimit) {
-		super(accountNumber, accountHolderName, accountBalance);
+		super( accountHolderName, accountBalance);
 		this.creditLimit = creditLimit;//lazy initialisation for credit limit
 		
 	}
 
 	@Override
-	public void withDraw(double amountToBeWithdrawn) throws InsuffientFundsException {
-		if ( amountToBeWithdrawn <= getAccountBalance() )
-			deposit(-amountToBeWithdrawn);
-		else if ( amountToBeWithdrawn <= (getAccountBalance()+creditLimit) && !(creditLimit <= 0) )
-			deposit(-amountToBeWithdrawn);
-		else 
-			throw new InsuffientFundsException("Insuffient Funds");
-	}
+	public abstract void withDraw(double amountToBeWithdrawn) throws InsuffientFundsException;
 
 	@Override
 	public String toString() {
-		return "CurrentAccount [creditLimit=" + creditLimit + ", toString()="
-				+ super.toString() + "]";
+		return "CurrentAccount [creditLimit=" + creditLimit
+				+ ", getAccountNumber()=" + getAccountNumber()
+				+ ", getAccountHolderName()=" + getAccountHolderName()
+				+ ", getAccountBalance()=" + getAccountBalance()
+				+ ", toString()=" + super.toString() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 
 	

@@ -11,23 +11,28 @@ import corejava.inheritance.assignments.exceptions.InsuffientFundsException;
  */
 public class MMCurrentAccount extends CurrentAccount{
 
-	public MMCurrentAccount(int accountNumber, String accountHolderName,
+	public MMCurrentAccount( String accountHolderName,
 			double accountBalance, double creditLimit) {
-		super(accountNumber, accountHolderName, accountBalance, creditLimit);
+		super( accountHolderName, accountBalance, creditLimit);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void withDraw(double amountToBeWithdrawn)
 			throws InsuffientFundsException {
-		// TODO Auto-generated method stub
-		super.withDraw(amountToBeWithdrawn);
+		if ( amountToBeWithdrawn <= getAccountBalance() )
+			deposit(-amountToBeWithdrawn);
+		else if ( amountToBeWithdrawn <= (getAccountBalance()+creditLimit)  )
+			deposit(-amountToBeWithdrawn);
+		else 
+			throw new InsuffientFundsException("Insuffient Funds");
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "MMCurrentAccount [creditLimit=" + creditLimit + ", toString()="
+				+ super.toString() + "]";
 	}
+
 
 }
