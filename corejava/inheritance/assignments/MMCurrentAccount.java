@@ -22,7 +22,7 @@ public class MMCurrentAccount extends CurrentAccount{
 			throws InsuffientFundsException {
 		if ( amountToBeWithdrawn <= getAccountBalance() )
 			deposit(-amountToBeWithdrawn);
-		else if ( amountToBeWithdrawn <= (getAccountBalance()+creditLimit)  )
+		else if ( amountToBeWithdrawn <= (getAccountBalance()+super.getCreditLimit())  )
 			deposit(-amountToBeWithdrawn);
 		else 
 			throw new InsuffientFundsException("Insuffient Funds");
@@ -30,8 +30,12 @@ public class MMCurrentAccount extends CurrentAccount{
 
 	@Override
 	public String toString() {
-		return "MMCurrentAccount [creditLimit=" + creditLimit + ", toString()="
-				+ super.toString() + "]";
+		return "MMCurrentAccount [getCreditLimit()=" + getCreditLimit()
+				+ ", toString()=" + super.toString() + ", getAccountNumber()="
+				+ getAccountNumber() + ", getAccountHolderName()="
+				+ getAccountHolderName() + ", getAccountBalance()="
+				+ getAccountBalance() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + "]";
 	}
 
 

@@ -7,7 +7,9 @@ import org.junit.Test;
 
 import corejava.inheritance.assignments.BankFactory;
 import corejava.inheritance.assignments.CurrentAccount;
+import corejava.inheritance.assignments.MMBankFacotry;
 import corejava.inheritance.assignments.exceptions.InsuffientFundsException;
+import corejava.inheritance.assignments.exceptions.InvalidAmountException;
 
 public class CurrentAccountTest {
 	private BankFactory bankAccount;
@@ -16,7 +18,8 @@ public class CurrentAccountTest {
 	
 	@Before
 	public void setUp(){
-			currentAccountCustomer = bankAccount.getNewCurrentAccount( "Vineela", 7000.0, 150.0);
+			bankAccount = new MMBankFacotry();
+			currentAccountCustomer = bankAccount.getNewCurrentAccount( "Vineela", 7000.0, 150);
 		
 	}
 
@@ -24,7 +27,8 @@ public class CurrentAccountTest {
 	public void testForWithDraw() {
 		try {
 			currentAccountCustomer.withDraw(100);
-		} catch (InsuffientFundsException e) {
+			assertEquals(6900.0, currentAccountCustomer.getAccountBalance(),0.0);
+		} catch (InsuffientFundsException | InvalidAmountException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -38,15 +42,21 @@ public class CurrentAccountTest {
 		} catch (InsuffientFundsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (InvalidAmountException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 			
 	}
 	
 	@Test
-	public void testForInsufientFunds() {
+	public void testForInsuffientFunds() {
 		try {
-			currentAccountCustomer.withDraw(-100);
+			currentAccountCustomer.withDraw(10100);
 		} catch (InsuffientFundsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidAmountException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -55,5 +65,6 @@ public class CurrentAccountTest {
 	@Test
 	public void testForDeposit() {
 			currentAccountCustomer.deposit(100);
+			assertEquals(7100.0, currentAccountCustomer.getAccountBalance(),0.0);
 	}
 }

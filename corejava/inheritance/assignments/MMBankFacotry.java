@@ -10,11 +10,15 @@ package corejava.inheritance.assignments;
 public class MMBankFacotry extends BankFactory{
 	private SavingAccount savingAccountCustomer;
 	private CurrentAccount currentAccountCustomer;
-	public MMBankFacotry() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
+
+	@Override
+	public String toString() {
+		return "MMBankFacotry [savingAccountCustomer=" + savingAccountCustomer
+				+ ", currentAccountCustomer=" + currentAccountCustomer
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 
 	@Override
 	public SavingAccount getNewSavingAccount(String accountHolderName, double accountBalance, boolean isSalaried) {
