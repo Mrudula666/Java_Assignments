@@ -9,7 +9,7 @@ public class RemovingTheSpacesAndObtainingTheDesiredWordFromSentence {
 		String[] parts= sentence.split(" ");//spliting the sentence into parts
 		position--;
 		for(int i=0;i<parts.length;i++){
-			if(i == position)//checking for the poisition in the array of the parts.
+			if(i == position && parts[i].equals(wordToBeDeleted))//checking for the poisition in the array of the parts.
 				continue;
 				//System.out.println(parts[i]);
 			new_sentence += parts[i]+" ";//adding the remaining words to the new_sentence except the position word given.
