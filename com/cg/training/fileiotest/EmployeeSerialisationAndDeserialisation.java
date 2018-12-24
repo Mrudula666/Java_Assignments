@@ -31,14 +31,13 @@ public class EmployeeSerialisationAndDeserialisation {
 		final String path = "C:/Users/mrnimmal/Downloads/test.txt";
 		try {
 			Employee readObject = readEmployee.getReadEmployeeObject(path);
-			/*Reader fis = new FileReader(path);
+			Reader fis = new FileReader(path);
 			BufferedReader br = new BufferedReader(fis);
 			while(br.readLine() != null){
 				System.out.println(br.readLine());
-			}*/
-			PrintWriter pr = new PrintWriter(path);
+			}
 			
-			System.out.println(pr);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

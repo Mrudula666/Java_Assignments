@@ -38,7 +38,6 @@ public class MyClassTest {
 	public void testForWritingTheArrayListInFile() {
 		String filePath = "C:/Users/mrnimmal/Downloads/ArrayList.ser";
 		MyClass readArrayList = null;
-		
 		readArrayList.getWriteArrayList(MyClassList,filePath);
 	}
 
