@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,19 +21,20 @@ import com.cg.training.fileio.Employee;
 
 /**
  * 
- * Mrudula Nimmala
- * 1)	Create a Class SavingAccount with field’s acc_balance, acc_ID, accountHoldername, isSalaryAccount. 
- * 		Also add setter and getter methods with business method like withdraw and deposit.
-	a.Create 5 different object of SavingAccount and add them into ArrayList, now interate the arraylist and 
-	display all SavingAccount’s object one by one.
-	b.Now save the ArrayList which contains SavingAccount’s object into a file 
-	and read the file and display all savingAccount Object one by one.
-	c.Create class BankAccountList which will maintain SavingAccount objects. Ensure that 
-	this class should not allow duplicates as well as data should be displayed in sorted order. (as per acc_ID)  
+ * Mrudula Nimmala 1) Create a Class SavingAccount with field’s acc_balance,
+ * acc_ID, accountHoldername, isSalaryAccount. Also add setter and getter
+ * methods with business method like withdraw and deposit. a.Create 5 different
+ * object of SavingAccount and add them into ArrayList, now interate the
+ * arraylist and display all SavingAccount’s object one by one. b.Now save the
+ * ArrayList which contains SavingAccount’s object into a file and read the file
+ * and display all savingAccount Object one by one. c.Create class
+ * BankAccountList which will maintain SavingAccount objects. Ensure that this
+ * class should not allow duplicates as well as data should be displayed in
+ * sorted order. (as per acc_ID)
  *
  */
 
-public class SavingAccount implements Serializable{
+public class SavingAccount implements Serializable,Comparable<SavingAccount> {
 	/**
 	 * 
 	 */
@@ -44,6 +46,7 @@ public class SavingAccount implements Serializable{
 	 * @param accountBalance
 	 * @param isSalaryAccount
 	 */
+
 	private int accountNumber;
 	private String accountName;
 	private int accountBalance;
@@ -116,34 +119,70 @@ public class SavingAccount implements Serializable{
 
 	public static File getWriteCustomerArrayList(
 			List<SavingAccount> savingAccountCustomers, File listFile) {
-		FileOutputStream fos= null;
-		ObjectOutputStream oos= null;
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
 		try {
 			fos = new FileOutputStream(listFile);
 			oos = new ObjectOutputStream(fos);
-				oos.writeObject(savingAccountCustomers);
-				oos.close();
-		} catch ( IOException e) {
+			oos.writeObject(savingAccountCustomers);
+			oos.close();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return listFile;
 	}
 
-	public static List<SavingAccount> getReadList(String filePath) throws ClassNotFoundException {
+	public static List<SavingAccount> getReadList(String filePath)
+			throws ClassNotFoundException {
 		List<SavingAccount> listInFile = new ArrayList<SavingAccount>();
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 		try {
 			fis = new FileInputStream(filePath);
 			ois = new ObjectInputStream(fis);
-			listInFile = (ArrayList<SavingAccount>)ois.readObject();//typecasting the object type to ArrayList
+			listInFile = (ArrayList<SavingAccount>) ois.readObject();// typecasting the object type to ArrayList
 			ois.close();
 			return listInFile;
-		} catch ( IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		 
+
 		return null;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + accountBalance;
+		result = prime * result
+				+ ((accountName == null) ? 0 : accountName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SavingAccount other = (SavingAccount) obj;
+		if (accountBalance != other.accountBalance)
+			return false;
+		if (accountName == null) {
+			if (other.accountName != null)
+				return false;
+		} else if (!accountName.equals(other.accountName))
+			return false;
+		return true;
+	}
+
+	@Override
+	public int compareTo(SavingAccount arg0) {
+		// TODO Auto-generated method stub
+		return (this.accountNumber - arg0.getAccountNumber());
 	}
 
 }

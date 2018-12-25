@@ -3,6 +3,8 @@
  */
 package com.cg.training.advancecollections;
 
+import java.util.Comparator;
+
 /**
  * Mrudula Nimmala
  * 2)Create class Movie_Details with field’s mov_Name, lead_actor, lead_actress, and genre  add 
@@ -12,7 +14,7 @@ package com.cg.training.advancecollections;
  * c.Movie_DetailsList should have method which will take an argument that will be use to determine on which to sort 
  *
  */
-public class MovieDetails {
+public class MovieDetails implements Comparable<MovieDetails>{
 	/**
 	 * 
 	 * @param movieName
@@ -34,7 +36,11 @@ public class MovieDetails {
 		this.genre = genre;
 	}
 
-	public String getMovieName() {
+	public MovieDetails() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public  String getMovieName() {
 		return movieName;
 	}
 
@@ -72,5 +78,14 @@ public class MovieDetails {
 				+ leadActor + ", leadActress=" + leadActress + ", genre="
 				+ genre + "]";
 	}
+
+	@Override
+	public int compareTo(MovieDetails arg0) {
+		return (this.movieName.compareTo(arg0.movieName));
+	}
+
+
+
+
 
 }

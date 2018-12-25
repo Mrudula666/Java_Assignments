@@ -8,12 +8,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import com.cg.training.advancecollections.BankAccountList;
 import com.cg.training.advancecollections.SavingAccount;
 import com.cg.training.fileio.Employee;
 
@@ -24,6 +29,7 @@ public class BankAccountTest {
 	private SavingAccount savingAccountCustomer4;
 	private SavingAccount savingAccountCustomer5;
 	private List<SavingAccount> savingAccountCustomers = new ArrayList<SavingAccount>();
+	private BankAccountList bankAccountList = new BankAccountList();
 
 	@Before
 	public void setUp() {
@@ -55,32 +61,48 @@ public class BankAccountTest {
 
 	@Test
 	public void testForReadingAndWritingTheSutomerListInTheFile() {
-		File listFile = new File("C:/Users/mrnimmal/Downloads/BankCustomerArrayList.txt");
-		//String filePath = "C:/Users/mrnimmal/Downloads/BankCustomerArrayList.txt";
-			 
-			File file=SavingAccount.getWriteCustomerArrayList(savingAccountCustomers,listFile);
-			System.out.println(file.exists());
-			
+		File listFile = new File(
+				"C:/Users/mrnimmal/Downloads/BankCustomerArrayList.txt");
+		// String filePath =
+		// "C:/Users/mrnimmal/Downloads/BankCustomerArrayList.txt";
+
+		File file = SavingAccount.getWriteCustomerArrayList(
+				savingAccountCustomers, listFile);
+		System.out.println(file.exists());
+
 	}
-	
+
 	@Test
 	public void testForWritingTheFiles() {
-		//File listFile = new File("C:/Users/mrnimmal/Downloads/BankCustomerArrayList.txt");
+		// File listFile = new
+		// File("C:/Users/mrnimmal/Downloads/BankCustomerArrayList.txt");
 		String filePath = "C:/Users/mrnimmal/Downloads/BankCustomerArrayList.txt";
-			 
-			try {
-				List<SavingAccount> list = SavingAccount.getReadList(filePath);
-				Iterator<SavingAccount> iterator = list.iterator();
-				while (iterator.hasNext()) {
-					System.out.println(iterator.next());
-					
-				}
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
+		try {
+			List<SavingAccount> list = SavingAccount.getReadList(filePath);
+			Iterator<SavingAccount> iterator = list.iterator();
+			while (iterator.hasNext()) {
+				System.out.println(iterator.next());
+
 			}
-			
-			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Test
+	public void testForBankAccountList() {
+		System.out.println("Sorting the elements: ");
+
+		Set<SavingAccount> savingAccountSet = bankAccountList
+				.addListElements(savingAccountCustomers);
+		Iterator<SavingAccount> iterator = savingAccountSet.iterator();
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+
 	}
 
 }
